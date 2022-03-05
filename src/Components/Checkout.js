@@ -5,7 +5,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "../Redux/StateProvider";
 
 function Checkout() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -15,6 +15,7 @@ function Checkout() {
           className="checkout__ad"
         />
         <div>
+          <h3>{user ? `Hello, ${user?.email}` : "Hello Guest"}</h3>
           <h2 className="checkout__title">Your Shoppping Basket</h2>
 
           {basket.map((item) => (
@@ -26,11 +27,6 @@ function Checkout() {
               rating={item.rating}
             />
           ))}
-          {/* BasketItem */}
-          {/* BasketItem */}
-          {/* BasketItem */}
-          {/* BasketItem */}
-          {/* BasketItem */}
         </div>
       </div>
 
